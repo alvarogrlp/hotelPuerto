@@ -1,0 +1,105 @@
+package org.docencia.hotel.mapper.jpa;
+
+import javax.annotation.processing.Generated;
+import org.docencia.hotel.domain.model.Booking;
+import org.docencia.hotel.persistence.jpa.entity.BookingEntity;
+import org.docencia.hotel.persistence.jpa.entity.GuestEntity;
+import org.docencia.hotel.persistence.jpa.entity.RoomEntity;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-01-05T14:04:54+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.9 (Eclipse Adoptium)"
+)
+@Component
+public class BookingMapperImpl implements BookingMapper {
+
+    @Override
+    public BookingEntity toEntity(Booking domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        BookingEntity bookingEntity = new BookingEntity();
+
+        bookingEntity.setRoom( bookingToRoomEntity( domain ) );
+        bookingEntity.setGuest( bookingToGuestEntity( domain ) );
+        bookingEntity.setId( domain.getId() );
+        bookingEntity.setCheckIn( domain.getCheckIn() );
+        bookingEntity.setCheckOut( domain.getCheckOut() );
+
+        return bookingEntity;
+    }
+
+    @Override
+    public Booking toDomain(BookingEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        Booking booking = new Booking();
+
+        booking.setRoomId( entityRoomId( entity ) );
+        booking.setGuestId( entityGuestId( entity ) );
+        booking.setId( entity.getId() );
+        booking.setCheckIn( entity.getCheckIn() );
+        booking.setCheckOut( entity.getCheckOut() );
+
+        return booking;
+    }
+
+    protected RoomEntity bookingToRoomEntity(Booking booking) {
+        if ( booking == null ) {
+            return null;
+        }
+
+        RoomEntity roomEntity = new RoomEntity();
+
+        roomEntity.setId( booking.getRoomId() );
+
+        return roomEntity;
+    }
+
+    protected GuestEntity bookingToGuestEntity(Booking booking) {
+        if ( booking == null ) {
+            return null;
+        }
+
+        GuestEntity guestEntity = new GuestEntity();
+
+        guestEntity.setId( booking.getGuestId() );
+
+        return guestEntity;
+    }
+
+    private Long entityRoomId(BookingEntity bookingEntity) {
+        if ( bookingEntity == null ) {
+            return null;
+        }
+        RoomEntity room = bookingEntity.getRoom();
+        if ( room == null ) {
+            return null;
+        }
+        Long id = room.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
+    }
+
+    private Long entityGuestId(BookingEntity bookingEntity) {
+        if ( bookingEntity == null ) {
+            return null;
+        }
+        GuestEntity guest = bookingEntity.getGuest();
+        if ( guest == null ) {
+            return null;
+        }
+        Long id = guest.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
+    }
+}
