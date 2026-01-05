@@ -109,80 +109,72 @@ El informe de **JaCoCo** estará disponible en:
 
 ```
 org.docencia.hotel
-├── config          # Configuraciones (CXF, etc.)
-├── domain          # Modelos y lógica de negocio (Interfaces e Impl)
-├── mapper          # Mappers de MapStruct (JPA y NoSQL)
-├── persistence     # Entidades JPA, Documentos Mongo y Repositorios
-├── service         # Lógica de aplicación (Interfaces e Impl)
-└── web             # Controladores REST y Endpoints SOAP
-```
-
-</div>
 ├── HotelApplication
 ├── config
 │   └── CxfConfig
-├── web
-│   ├── rest
-│   │   └── GuestController
-│   └── soap
-│       ├── GuestSoapService
-│       └── GuestSoapServiceImpl
 ├── domain
 │   ├── api
-│   │   ├── HotelDomain
-│   │   ├── RoomDomain
 │   │   ├── BookingDomain
-│   │   └── GuestDomain
+│   │   ├── GuestDomain
+│   │   ├── HotelDomain
+│   │   └── RoomDomain
 │   ├── impl
-│   │   ├── HotelDomainImpl
-│   │   ├── RoomDomainImpl
 │   │   ├── BookingDomainImpl
-│   │   └── GuestDomainImpl
-│   ├── model
-│   │   ├── Hotel
-│   │   ├── Room
-│   │   ├── Booking
-│   │   ├── Guest
-│   │   └── GuestPreferences
-├── service
-│   ├── api
-│   │   ├── HotelService
-│   │   ├── RoomService
-│   │   ├── BookingService
-│   │   └── GuestService
-│   └── impl
-│       ├── HotelServiceImpl
-│       ├── RoomServiceImpl
-│       ├── BookingServiceImpl
-│       └── GuestServiceImpl
+│   │   ├── GuestDomainImpl
+│   │   ├── HotelDomainImpl
+│   │   └── RoomDomainImpl
+│   └── model
+│       ├── Booking
+│       ├── Guest
+│       ├── GuestPreferences
+│       ├── Hotel
+│       └── Room
 ├── mapper
 │   ├── jpa
-│   │   ├── HotelMapper
-│   │   ├── RoomMapper
 │   │   ├── BookingMapper
-│   │   └── GuestMapper
+│   │   ├── GuestMapper
+│   │   ├── HotelMapper
+│   │   └── RoomMapper
 │   └── nosql
 │       └── GuestPreferencesMapper
-└── persistence
+├── persistence
 │   ├── jpa
-│   │   ├── AbstractJpaRepository
 │   │   ├── entity
-│   │   │   ├── HotelEntity
-│   │   │   ├── RoomEntity
 │   │   │   ├── BookingEntity
-│   │   │   └── GuestEntity
-|   |── nosql
-|   |   ├── document
-|   |   │   └── GuestPreferencesDocument
+│   │   │   ├── GuestEntity
+│   │   │   ├── HotelEntity
+│   │   │   └── RoomEntity
+│   ├── nosql
+│   │   └── document
+│   │       └── GuestPreferencesDocument
 │   └── repository
 │       ├── jpa
+│       │   ├── BookingRepository
+│       │   ├── GuestJpaRepository
 │       │   ├── HotelRepository
 │       │   ├── RoomRepository
-│       │   ├── BookingRepository
-│       │   └── GuestJpaRepository
 │       └── nosql
 │           └── GuestPreferencesRepository
+├── service
+│   ├── api
+│   │   ├── BookingService
+│   │   ├── GuestService
+│   │   ├── HotelService
+│   │   └── RoomService
+│   └── impl
+│       ├── BookingServiceImpl
+│       ├── GuestServiceImpl
+│       ├── HotelServiceImpl
+│       ├── RoomServiceImpl
+└── web
+    ├── rest
+    │   └── GuestController
+    └── soap
+        ├── GuestSoapService
+        └── GuestSoapServiceImpl
 ```
+
+</div>
 
 ---
 
